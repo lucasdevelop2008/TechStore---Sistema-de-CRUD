@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore - Sistema de Cadastro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <h1>TechStore</h1>
+                    <p class="subtitle">Sistema de Cadastro de Produtos</p>
+                </div>
+                <button id="btnNovoBtn" class="btn btn-primary btn-lg">
+                    <span class="btn-icon">+</span> Novo Produto
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Filtros -->
+            <section class="filters-section">
+                <div class="filter-group">
+                    <div class="search-box">
+                        <span class="search-icon">🔍</span>
+                        <input 
+                            type="text" 
+                            id="searchInput" 
+                            placeholder="Buscar produtos..."
+                            class="input"
+                        >
+                    </div>
+
+                    <select id="categoryFilter" class="input">
+                        <option value="">Todas as categorias</option>
+                        <option value="Notebooks">Notebooks</option>
+                        <option value="Smartphones">Smartphones</option>
+                        <option value="Tablets">Tablets</option>
+                        <option value="Acessórios">Acessórios</option>
+                        <option value="Periféricos">Periféricos</option>
+                    </select>
+
+                    <span id="resultCount" class="result-count">0 produtos encontrados</span>
+                </div>
+            </section>
+
+            <!-- Tabela de Produtos -->
+            <section class="products-section">
+                <div id="emptyState" class="empty-state">
+                    <div class="empty-icon">📦</div>
+                    <h3>Nenhum produto encontrado</h3>
+                    <p>Clique em "Novo Produto" para começar</p>
+                </div>
+
+                <table id="productsTable" class="products-table" style="display: none;">
+                    <thead>
+                        <tr>
+                            <th>
+                                <button class="sort-btn" data-sort="name">
+                                    Produto <span class="sort-icon"></span>
+                                </button>
+                            </th>
+                            <th>Categoria</th>
+                            <th>
+                                <button class="sort-btn" data-sort="price">
+                                    Preço <span class="sort-icon"></span>
+                                </button>
+                            </th>
+                            <th>
+                                <button class="sort-btn" data-sort="stock">
+                                    Estoque <span class="sort-icon"></span>
+                                </button>
+                            </th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productsBody">
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modal de Criar/Editar -->
+    <div id="modalOverlay" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 id="modalTitle">Novo Produto</h2>
+                <button id="btnCloseModal" class="btn-close">✕</button>
+            </div>
+
+            <form id="productForm" class="form">
+                <!-- Nome -->
+                <div class="form-group">
+                    <label for="productName">Nome do Produto *</label>
+                    <input 
+                        type="text" 
+                        id="productName" 
+                        class="input"
+                        placeholder="Ex: MacBook Pro 14"
+                        required
+                    >
+                    <span class="error-message" id="errorName"></span>
+                </div>
+
+                <!-- Categoria -->
+                <div class="form-group">
+                    <label for="productCategory">Categoria *</label>
+                    <select id="productCategory" class="input" required>
+                        <option value="">Selecione uma categoria</option>
+                        <option value="Notebooks">Notebooks</option>
+                        <option value="Smartphones">Smartphones</option>
+                        <option value="Tablets">Tablets</option>
+                        <option value="Acessórios">Acessórios</option>
+                        <option value="Periféricos">Periféricos</option>
+                    </select>
+                    <span class="error-message" id="errorCategory"></span>
+                </div>
+
+                <!-- Preço -->
+                <div class="form-group">
+                    <label for="productPrice">Preço (R$) *</label>
+                    <input 
+                        type="number" 
+                        id="productPrice" 
+                        class="input"
+                        placeholder="0.00"
+                        step="0.01"
+                        min="0"
+                        required
+                    >
+                    <span class="error-message" id="errorPrice"></span>
+                </div>
+
+                <!-- Estoque -->
+                <div class="form-group">
+                    <label for="productStock">Estoque *</label>
+                    <input 
+                        type="number" 
+                        id="productStock" 
+                        class="input"
+                        placeholder="0"
+                        min="0"
+                        required
+                    >
+                    <span class="error-message" id="errorStock"></span>
+                </div>
+
+                <!-- Descrição -->
+                <div class="form-group">
+                    <label for="productDescription">Descrição *</label>
+                    <textarea 
+                        id="productDescription" 
+                        class="input textarea"
+                        placeholder="Descreva o produto..."
+                        rows="3"
+                        required
+                    ></textarea>
+                    <span class="error-message" id="errorDescription"></span>
+                </div>
+
+                <!-- Botões -->
+                <div class="form-actions">
+                    <button type="button" id="btnCancelForm" class="btn btn-secondary">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmação de Exclusão -->
+    <div id="deleteModalOverlay" class="modal-overlay">
+        <div class="modal modal-small">
+            <div class="modal-header">
+                <h2>Confirmar Exclusão</h2>
+            </div>
+
+            <div class="modal-body">
+                <p>Tem certeza que deseja excluir este produto? Esta ação não pode ser desfeita.</p>
+            </div>
+
+            <div class="form-actions">
+                <button id="btnCancelDelete" class="btn btn-secondary">Cancelar</button>
+                <button id="btnConfirmDelete" class="btn btn-danger">Excluir</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
