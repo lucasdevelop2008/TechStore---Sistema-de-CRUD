@@ -4,11 +4,14 @@ Um sistema completo de cadastro de produtos desenvolvido com HTML, CSS e JavaScr
 
 📦 O que está incluído
 
-• index.html - Estrutura HTML da aplicação
+•
+index.html - Estrutura HTML da aplicação
 
-• style.css - Estilos CSS responsivos
+•
+style.css - Estilos CSS responsivos
 
-• script.js - Lógica JavaScript do CRUD
+•
+script.js - Lógica JavaScript do CRUD
 
 🚀 Como usar
 
@@ -20,11 +23,14 @@ Descompacte o arquivo techstore-crud.zip em uma pasta.
 
 Abra o arquivo index.html diretamente no seu navegador:
 
-• Clique duas vezes em index.html
+•
+Clique duas vezes em index.html
 
-• Ou arraste o arquivo para o navegador
+•
+Ou arraste o arquivo para o navegador
 
-• Ou clique com botão direito → "Abrir com" → navegador
+•
+Ou clique com botão direito → "Abrir com" → navegador
 
 Pronto! A aplicação está funcionando.
 
@@ -32,57 +38,80 @@ Pronto! A aplicação está funcionando.
 
 ✅ CRUD Completo
 
-• Criar: Clique em "Novo Produto" para adicionar um produto
+•
+Criar: Clique em "Novo Produto" para adicionar um produto
 
-• Listar: Todos os produtos aparecem em uma tabela
+•
+Listar: Todos os produtos aparecem em uma tabela
 
-• Editar: Clique em "Editar" para modificar um produto
+•
+Editar: Clique em "Editar" para modificar um produto
 
-• Deletar: Clique em "Deletar" para remover um produto
+•
+Deletar: Clique em "Deletar" para remover um produto
 
 🔍 Busca em Tempo Real
 
-• Digite na barra de busca para encontrar produtos por nome ou descrição
+•
+Digite na barra de busca para encontrar produtos por nome ou descrição
 
-• Os resultados aparecem instantaneamente
+•
+Os resultados aparecem instantaneamente
 
 📂 Filtro por Categoria
 
-• Use o dropdown para filtrar por:
+•
+Use o dropdown para filtrar por:
 
-• Notebooks
+•
+Notebooks
 
-• Smartphones
+•
+Smartphones
 
-• Tablets
+•
+Tablets
 
-• Acessórios
+•
+Acessórios
 
-• Periféricos
+•
+Periféricos
+
+
 
 ⬆️⬇️ Ordenação Dinâmica
 
-• Clique nos cabeçalhos "Produto", "Preço" ou "Estoque" para ordenar
+•
+Clique nos cabeçalhos "Produto", "Preço" ou "Estoque" para ordenar
 
-• Primeira clique: ordem crescente (↑)
+•
+Primeira clique: ordem crescente (↑)
 
-• Segunda clique: ordem decrescente (↓)
+•
+Segunda clique: ordem decrescente (↓)
 
 ✔️ Validação de Formulário
 
-• Nome: mínimo 3 caracteres
+•
+Nome: mínimo 3 caracteres
 
-• Preço: deve ser maior que 0
+•
+Preço: deve ser maior que 0
 
-• Estoque: não pode ser negativo
+•
+Estoque: não pode ser negativo
 
-• Descrição: mínimo 10 caracteres
+•
+Descrição: mínimo 10 caracteres
 
 📱 Responsivo
 
-• Funciona em desktop, tablet e mobile
+•
+Funciona em desktop, tablet e mobile
 
-• Interface se adapta automaticamente
+•
+Interface se adapta automaticamente
 
 📊 Dados de Exemplo
 
@@ -113,51 +142,74 @@ Periféricos
 R$ 799,99
 15
 
+
+
+
 🎯 Passo a Passo - Criar um Produto
 
-1. Clique no botão "+ Novo Produto" no topo
+1.
+Clique no botão "+ Novo Produto" no topo
 
-2. Preencha os campos:
+2.
+Preencha os campos:
 
-• Nome: Digite o nome do produto
+•
+Nome: Digite o nome do produto
 
-• Categoria: Selecione uma categoria
+•
+Categoria: Selecione uma categoria
 
-• Preço: Digite o valor em reais
+•
+Preço: Digite o valor em reais
 
-• Estoque: Digite a quantidade
+•
+Estoque: Digite a quantidade
 
-• Descrição: Descreva o produto
+•
+Descrição: Descreva o produto
 
-3. Clique em "Salvar"
 
-4. O produto aparecerá na tabela
+
+3.
+Clique em "Salvar"
+
+4.
+O produto aparecerá na tabela
 
 🎯 Passo a Passo - Editar um Produto
 
-1. Encontre o produto na tabela
+1.
+Encontre o produto na tabela
 
-2. Clique no botão "✏️ Editar"
+2.
+Clique no botão "✏️ Editar"
 
-3. Modifique os campos desejados
+3.
+Modifique os campos desejados
 
-4. Clique em "Salvar"
+4.
+Clique em "Salvar"
 
 🎯 Passo a Passo - Deletar um Produto
 
-1. Encontre o produto na tabela
+1.
+Encontre o produto na tabela
 
-2. Clique no botão "🗑️ Deletar"
+2.
+Clique no botão "🗑️ Deletar"
 
-3. Confirme a exclusão no diálogo
+3.
+Confirme a exclusão no diálogo
 
-4. O produto será removido
+4.
+O produto será removido
 
 🔧 Publicar no GitHub Pages
 
 Opção 1: Repositório de Usuário
 
 Bash
+
 
 # 1. Crie um repositório chamado seu-usuario.github.io
 # 2. Clone o repositório
@@ -174,9 +226,11 @@ git push origin main
 
 # 5. Acesse: https://seu-usuario.github.io
 
+
 Opção 2: Repositório de Projeto
 
 Bash
+
 
 # 1. Crie um repositório chamado tech-store-crud
 # 2. Clone o repositório
@@ -194,23 +248,30 @@ git push origin main
 # 5. Vá em Settings → Pages → Source → main branch
 # 6. Acesse: https://seu-usuario.github.io/tech-store-crud
 
+
 💾 Persistência de Dados
 
 Importante: Os dados são armazenados apenas na memória do navegador. Isso significa:
 
-• ✅ Os dados persistem enquanto você está na página
+•
+✅ Os dados persistem enquanto você está na página
 
-• ❌ Os dados são perdidos ao recarregar a página
+•
+❌ Os dados são perdidos ao recarregar a página
 
-• ❌ Os dados não são salvos em banco de dados
+•
+❌ Os dados não são salvos em banco de dados
 
 Para salvar os dados permanentemente, você precisaria:
 
-1. Implementar um backend (Node.js, Python, etc. )
+1.
+Implementar um backend (Node.js, Python, etc. )
 
-2. Conectar a um banco de dados (PostgreSQL, MongoDB, etc.)
+2.
+Conectar a um banco de dados (PostgreSQL, MongoDB, etc.)
 
-3. Usar localStorage do navegador (dados limitados)
+3.
+Usar localStorage do navegador (dados limitados)
 
 Usar localStorage (Simples)
 
@@ -243,6 +304,7 @@ Abra style.css e procure por :root:
 
 CSS
 
+
 :root {
     --primary-color: #0891b2;  /* Cor principal */
     --danger-color: #ef4444;   /* Cor de perigo */
@@ -257,6 +319,7 @@ Abra index.html e procure por <select id="categoryFilter">:
 
 HTML
 
+
 <option value="Nova Categoria">Nova Categoria</option>
 
 
@@ -267,6 +330,7 @@ Mudar Dados Iniciais
 Abra script.js e modifique INITIAL_PRODUCTS:
 
 JavaScript
+
 
 const INITIAL_PRODUCTS = [
     {
@@ -280,39 +344,54 @@ const INITIAL_PRODUCTS = [
     // ... mais produtos ...
 ];
 
+
 🐛 Solução de Problemas
 
 A página abre em branco
 
-• Verifique se os 3 arquivos estão na mesma pasta
+•
+Verifique se os 3 arquivos estão na mesma pasta
 
-• Certifique-se de que os nomes estão corretos:
+•
+Certifique-se de que os nomes estão corretos:
 
-• index.html
+•
+index.html
 
-• style.css
+•
+style.css
 
-• script.js
+•
+script.js
+
+
 
 Os estilos não aparecem
 
-• Verifique se style.css está na mesma pasta que index.html
+•
+Verifique se style.css está na mesma pasta que index.html
 
-• Recarregue a página (Ctrl+F5 ou Cmd+Shift+R)
+•
+Recarregue a página (Ctrl+F5 ou Cmd+Shift+R)
 
 Os botões não funcionam
 
-• Verifique se script.js está na mesma pasta
+•
+Verifique se script.js está na mesma pasta
 
-• Abra o console (F12) e procure por erros
+•
+Abra o console (F12) e procure por erros
 
-• Recarregue a página
+•
+Recarregue a página
 
 Os dados desapareceram após recarregar
 
-• Isso é normal! Os dados são temporários
+•
+Isso é normal! Os dados são temporários
 
-• Use localStorage se quiser persistência
+•
+Use localStorage se quiser persistência
 
 📚 Estrutura de Dados
 
@@ -333,21 +412,29 @@ JavaScript
 
 Este projeto demonstra:
 
-• HTML semântico
+•
+HTML semântico
 
-• CSS Grid e Flexbox
+•
+CSS Grid e Flexbox
 
-• JavaScript vanilla (sem frameworks)
+•
+JavaScript vanilla (sem frameworks)
 
-• Manipulação do DOM
+•
+Manipulação do DOM
 
-• Event listeners
+•
+Event listeners
 
-• Validação de formulários
+•
+Validação de formulários
 
-• Filtro e ordenação de dados
+•
+Filtro e ordenação de dados
 
-• Responsividade mobile-first
+•
+Responsividade mobile-first
 
 📝 Licença
 
@@ -355,24 +442,56 @@ Projeto de demonstração educacional. Sinta-se livre para usar e modificar.
 
 ✅ Checklist
 
+
+
+
 Extraiu o ZIP
+
+
+
 
 Abriu index.html no navegador
 
+
+
+
 Consegue ver a tabela com 5 produtos
+
+
+
 
 Consegue criar um novo produto
 
+
+
+
 Consegue editar um produto
+
+
+
 
 Consegue deletar um produto
 
+
+
+
 Consegue buscar produtos
+
+
+
 
 Consegue filtrar por categoria
 
+
+
+
 Consegue ordenar por nome, preço e estoque
 
+
+
+
 Pronto para usar! Divirta-se com o TechStore CRUD! 🚀
+
+
 
 
