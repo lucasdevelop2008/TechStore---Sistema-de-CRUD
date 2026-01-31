@@ -3,199 +3,302 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechStore - Sistema de Cadastro</title>
-    <link rel="stylesheet" href="style.css">
+    <title>TechStore Pro - Sistema de Gestão de Produtos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div>
-                    <h1>TechStore</h1>
-                    <p class="subtitle">Sistema de Cadastro de Produtos</p>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-cube"></i>
+                    <span>TechStore Pro</span>
                 </div>
-                <button id="btnNovoBtn" class="btn btn-primary btn-lg">
-                    <span class="btn-icon">+</span> Novo Produto
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-view="dashboard">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item" data-view="products">
+                    <i class="fas fa-box"></i>
+                    <span>Produtos</span>
+                </a>
+                <a href="#" class="nav-item" data-view="analytics">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Análises</span>
+                </a>
+                <a href="#" class="nav-item" data-view="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Configurações</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <button id="exportBtn" class="btn-export" title="Exportar dados">
+                    <i class="fas fa-download"></i>
+                    Exportar
                 </button>
             </div>
-        </div>
-    </header>
+        </aside>
 
-    <!-- Main Content -->
-    <main class="main">
-        <div class="container">
-            <!-- Filtros -->
-            <section class="filters-section">
-                <div class="filter-group">
-                    <div class="search-box">
-                        <span class="search-icon">🔍</span>
-                        <input 
-                            type="text" 
-                            id="searchInput" 
-                            placeholder="Buscar produtos..."
-                            class="input"
-                        >
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-left">
+                    <h1 id="pageTitle">Dashboard</h1>
+                </div>
+                <div class="header-right">
+                    <button id="themeToggle" class="btn-icon" title="Alternar tema">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button id="notificationBtn" class="btn-icon" title="Notificações">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">0</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Content Area -->
+            <div class="content">
+                <!-- Dashboard View -->
+                <div id="dashboard-view" class="view active">
+                    <div class="dashboard-grid">
+                        <!-- Metrics Cards -->
+                        <div class="metric-card">
+                            <div class="metric-icon" style="background: linear-gradient(135deg, #1e40af, #0d9488);">
+                                <i class="fas fa-box"></i>
+                            </div>
+                            <div class="metric-content">
+                                <p class="metric-label">Total de Produtos</p>
+                                <p class="metric-value" id="totalProducts">0</p>
+                            </div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div class="metric-icon" style="background: linear-gradient(135deg, #0d9488, #059669);">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <div class="metric-content">
+                                <p class="metric-label">Valor em Estoque</p>
+                                <p class="metric-value" id="totalValue">R$ 0</p>
+                            </div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div class="metric-icon" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+                                <i class="fas fa-layer-group"></i>
+                            </div>
+                            <div class="metric-content">
+                                <p class="metric-label">Categorias</p>
+                                <p class="metric-value" id="totalCategories">0</p>
+                            </div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div class="metric-icon" style="background: linear-gradient(135deg, #ef4444, #dc2626);">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="metric-content">
+                                <p class="metric-label">Baixo Estoque</p>
+                                <p class="metric-value" id="lowStock">0</p>
+                            </div>
+                        </div>
                     </div>
 
-                    <select id="categoryFilter" class="input">
-                        <option value="">Todas as categorias</option>
-                        <option value="Notebooks">Notebooks</option>
-                        <option value="Smartphones">Smartphones</option>
-                        <option value="Tablets">Tablets</option>
-                        <option value="Acessórios">Acessórios</option>
-                        <option value="Periféricos">Periféricos</option>
-                    </select>
-
-                    <span id="resultCount" class="result-count">0 produtos encontrados</span>
-                </div>
-            </section>
-
-            <!-- Tabela de Produtos -->
-            <section class="products-section">
-                <div id="emptyState" class="empty-state">
-                    <div class="empty-icon">📦</div>
-                    <h3>Nenhum produto encontrado</h3>
-                    <p>Clique em "Novo Produto" para começar</p>
+                    <!-- Charts Section -->
+                    <div class="charts-section">
+                        <div class="chart-container">
+                            <h3>Distribuição por Categoria</h3>
+                            <canvas id="categoryChart"></canvas>
+                        </div>
+                        <div class="chart-container">
+                            <h3>Valor em Estoque por Categoria</h3>
+                            <canvas id="valueChart"></canvas>
+                        </div>
+                    </div>
                 </div>
 
-                <table id="productsTable" class="products-table" style="display: none;">
-                    <thead>
-                        <tr>
-                            <th>
-                                <button class="sort-btn" data-sort="name">
-                                    Produto <span class="sort-icon"></span>
-                                </button>
-                            </th>
-                            <th>Categoria</th>
-                            <th>
-                                <button class="sort-btn" data-sort="price">
-                                    Preço <span class="sort-icon"></span>
-                                </button>
-                            </th>
-                            <th>
-                                <button class="sort-btn" data-sort="stock">
-                                    Estoque <span class="sort-icon"></span>
-                                </button>
-                            </th>
-                            <th>Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody id="productsBody">
-                    </tbody>
-                </table>
-            </section>
-        </div>
-    </main>
+                <!-- Products View -->
+                <div id="products-view" class="view">
+                    <div class="products-header">
+                        <button id="newProductBtn" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Novo Produto
+                        </button>
+                        <div class="search-filter-group">
+                            <input type="text" id="searchInput" class="search-input" placeholder="Buscar produtos...">
+                            <select id="categoryFilter" class="filter-select">
+                                <option value="">Todas as categorias</option>
+                                <option value="Notebooks">Notebooks</option>
+                                <option value="Smartphones">Smartphones</option>
+                                <option value="Tablets">Tablets</option>
+                                <option value="Acessórios">Acessórios</option>
+                                <option value="Periféricos">Periféricos</option>
+                            </select>
+                        </div>
+                    </div>
 
-    <!-- Modal de Criar/Editar -->
-    <div id="modalOverlay" class="modal-overlay">
-        <div class="modal">
-            <div class="modal-header">
-                <h2 id="modalTitle">Novo Produto</h2>
-                <button id="btnCloseModal" class="btn-close">✕</button>
+                    <div class="products-table-container">
+                        <table class="products-table">
+                            <thead>
+                                <tr>
+                                    <th>Produto</th>
+                                    <th>Categoria</th>
+                                    <th>Preço</th>
+                                    <th>Estoque</th>
+                                    <th>Total</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="productsTableBody">
+                                <!-- Populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Analytics View -->
+                <div id="analytics-view" class="view">
+                    <div class="analytics-grid">
+                        <div class="analytics-card">
+                            <h3>Produtos por Categoria</h3>
+                            <div id="analyticsCategory" class="analytics-list"></div>
+                        </div>
+                        <div class="analytics-card">
+                            <h3>Top 5 Produtos por Valor</h3>
+                            <div id="analyticsValue" class="analytics-list"></div>
+                        </div>
+                        <div class="analytics-card">
+                            <h3>Produtos com Baixo Estoque</h3>
+                            <div id="analyticsLowStock" class="analytics-list"></div>
+                        </div>
+                        <div class="analytics-card">
+                            <h3>Estatísticas Gerais</h3>
+                            <div id="analyticsStats" class="analytics-stats"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settings View -->
+                <div id="settings-view" class="view">
+                    <div class="settings-container">
+                        <div class="settings-card">
+                            <h3>Preferências</h3>
+                            <div class="setting-item">
+                                <label>
+                                    <input type="checkbox" id="darkModeToggle">
+                                    <span>Modo Escuro</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label>
+                                    <input type="checkbox" id="notificationsToggle" checked>
+                                    <span>Ativar Notificações</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="settings-card">
+                            <h3>Dados</h3>
+                            <button id="clearDataBtn" class="btn btn-danger">
+                                <i class="fas fa-trash"></i> Limpar Todos os Dados
+                            </button>
+                            <button id="resetDataBtn" class="btn btn-secondary">
+                                <i class="fas fa-redo"></i> Carregar Dados de Exemplo
+                            </button>
+                        </div>
+
+                        <div class="settings-card">
+                            <h3>Sobre</h3>
+                            <p>TechStore Pro v1.0</p>
+                            <p>Sistema profissional de gestão de produtos</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <form id="productForm" class="form">
-                <!-- Nome -->
-                <div class="form-group">
-                    <label for="productName">Nome do Produto *</label>
-                    <input 
-                        type="text" 
-                        id="productName" 
-                        class="input"
-                        placeholder="Ex: MacBook Pro 14"
-                        required
-                    >
-                    <span class="error-message" id="errorName"></span>
-                </div>
-
-                <!-- Categoria -->
-                <div class="form-group">
-                    <label for="productCategory">Categoria *</label>
-                    <select id="productCategory" class="input" required>
-                        <option value="">Selecione uma categoria</option>
-                        <option value="Notebooks">Notebooks</option>
-                        <option value="Smartphones">Smartphones</option>
-                        <option value="Tablets">Tablets</option>
-                        <option value="Acessórios">Acessórios</option>
-                        <option value="Periféricos">Periféricos</option>
-                    </select>
-                    <span class="error-message" id="errorCategory"></span>
-                </div>
-
-                <!-- Preço -->
-                <div class="form-group">
-                    <label for="productPrice">Preço (R$) *</label>
-                    <input 
-                        type="number" 
-                        id="productPrice" 
-                        class="input"
-                        placeholder="0.00"
-                        step="0.01"
-                        min="0"
-                        required
-                    >
-                    <span class="error-message" id="errorPrice"></span>
-                </div>
-
-                <!-- Estoque -->
-                <div class="form-group">
-                    <label for="productStock">Estoque *</label>
-                    <input 
-                        type="number" 
-                        id="productStock" 
-                        class="input"
-                        placeholder="0"
-                        min="0"
-                        required
-                    >
-                    <span class="error-message" id="errorStock"></span>
-                </div>
-
-                <!-- Descrição -->
-                <div class="form-group">
-                    <label for="productDescription">Descrição *</label>
-                    <textarea 
-                        id="productDescription" 
-                        class="input textarea"
-                        placeholder="Descreva o produto..."
-                        rows="3"
-                        required
-                    ></textarea>
-                    <span class="error-message" id="errorDescription"></span>
-                </div>
-
-                <!-- Botões -->
-                <div class="form-actions">
-                    <button type="button" id="btnCancelForm" class="btn btn-secondary">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Salvar</button>
-                </div>
-            </form>
-        </div>
+        </main>
     </div>
 
-    <!-- Modal de Confirmação de Exclusão -->
-    <div id="deleteModalOverlay" class="modal-overlay">
-        <div class="modal modal-small">
+    <!-- Modal for Product Form -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
             <div class="modal-header">
-                <h2>Confirmar Exclusão</h2>
+                <h2 id="modalTitle">Novo Produto</h2>
+                <button class="modal-close" id="closeModalBtn">&times;</button>
             </div>
+            <form id="productForm" class="product-form">
+                <div class="form-group">
+                    <label for="productName">Nome do Produto *</label>
+                    <input type="text" id="productName" required placeholder="Ex: MacBook Pro 14">
+                </div>
 
-            <div class="modal-body">
-                <p>Tem certeza que deseja excluir este produto? Esta ação não pode ser desfeita.</p>
-            </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productCategory">Categoria *</label>
+                        <select id="productCategory" required>
+                            <option value="">Selecione uma categoria</option>
+                            <option value="Notebooks">Notebooks</option>
+                            <option value="Smartphones">Smartphones</option>
+                            <option value="Tablets">Tablets</option>
+                            <option value="Acessórios">Acessórios</option>
+                            <option value="Periféricos">Periféricos</option>
+                        </select>
+                    </div>
 
-            <div class="form-actions">
-                <button id="btnCancelDelete" class="btn btn-secondary">Cancelar</button>
-                <button id="btnConfirmDelete" class="btn btn-danger">Excluir</button>
-            </div>
+                    <div class="form-group">
+                        <label for="productPrice">Preço (R$) *</label>
+                        <input type="number" id="productPrice" required placeholder="0.00" step="0.01" min="0">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productStock">Estoque *</label>
+                        <input type="number" id="productStock" required placeholder="0" min="0">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productImage">URL da Imagem</label>
+                        <input type="url" id="productImage" placeholder="https://exemplo.com/imagem.jpg">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="productDescription">Descrição</label>
+                    <textarea id="productDescription" placeholder="Descreva o produto..." rows="3"></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelFormBtn">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Salvar Produto</button>
+                </div>
+            </form>
         </div>
     </div>
 
     <!-- Toast Notification -->
     <div id="toast" class="toast"></div>
 
-    <script src="script.js"></script>
+    <!-- Confirmation Dialog -->
+    <div id="confirmDialog" class="modal">
+        <div class="modal-content confirm-modal">
+            <div class="modal-header">
+                <h2>Confirmar Ação</h2>
+            </div>
+            <p id="confirmMessage"></p>
+            <div class="form-actions">
+                <button class="btn btn-secondary" id="confirmCancel">Cancelar</button>
+                <button class="btn btn-danger" id="confirmOk">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
