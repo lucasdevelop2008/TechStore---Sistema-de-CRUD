@@ -1,98 +1,105 @@
-# TechStore Pro - Sistema de Gestão de Produtos
+# 📦 TechStore --- Sistema de Cadastro de Produtos (CRUD)
 
-Um sistema profissional e moderno para gerenciar produtos, com dashboard interativo, análises e controle de estoque.
+TechStore é um **sistema web simples de cadastro de produtos**,
+desenvolvido para praticar as operações fundamentais de um CRUD (Create,
+Read, Update, Delete) utilizando apenas tecnologias front-end.
 
-## ✨ Características
+O projeto simula um pequeno sistema de gerenciamento de produtos, ideal
+para estudos, portfólio e demonstração de habilidades em JavaScript.
 
-### Dashboard
-- Métricas em tempo real (total de produtos, valor em estoque, categorias, baixo estoque)
-- Gráficos interativos com Chart.js
-- Distribuição por categoria
-- Análise de valor em estoque
+------------------------------------------------------------------------
 
-### Gestão de Produtos
-- Criar, editar e deletar produtos
-- Busca em tempo real
-- Filtro por categoria
-- Visualização em tabela com informações completas
-- Suporte a imagens de produtos
+## ✨ Funcionalidades
 
-### Análises
-- Produtos por categoria
-- Top 5 produtos por valor
-- Produtos com baixo estoque
-- Estatísticas gerais
+-   ➕ Cadastrar novos produtos\
+-   📋 Listar produtos em tabela\
+-   ✏️ Editar produtos cadastrados\
+-   🗑️ Excluir produtos\
+-   🧠 Manipulação dinâmica do DOM\
+-   💾 Persistência local (caso utilize LocalStorage)
 
-### Recursos Adicionais
-- Tema claro/escuro
-- Exportação de dados em CSV
-- Persistência de dados (LocalStorage)
-- Interface responsiva
-- Design minimalista corporativo
+------------------------------------------------------------------------
 
-## 🚀 Como Usar
+## 🧱 Tecnologias Utilizadas
 
-1. **Abrir o arquivo**: Simplesmente abra `index.html` no seu navegador
-2. **Adicionar produtos**: Clique em "Novo Produto" para adicionar itens
-3. **Buscar e filtrar**: Use a barra de busca e o filtro de categoria
-4. **Ver análises**: Acesse a aba "Análises" para insights
-5. **Exportar dados**: Clique em "Exportar" para baixar os dados em CSV
+-   HTML5\
+-   CSS3\
+-   JavaScript (Vanilla JS)
+
+------------------------------------------------------------------------
 
 ## 📁 Estrutura de Arquivos
 
+    TechStore---Sistema-de-CRUD/
+    │
+    ├── index.html
+    ├── style.css
+    └── script.js
+
+------------------------------------------------------------------------
+
+## 🚀 Como Executar Localmente
+
+1.  Clone o repositório:
+
+```{=html}
+<!-- -->
 ```
-techstore-pro/
-├── index.html       # Estrutura HTML
-├── styles.css       # Estilos e design
-├── app.js          # Lógica da aplicação
-├── README.md       # Este arquivo
-└── images/         # Imagens (se houver)
+    git clone https://github.com/lucasdevelop2008/TechStore---Sistema-de-CRUD.git
+
+2.  Acesse a pasta do projeto:
+
+```{=html}
+<!-- -->
 ```
+    cd TechStore---Sistema-de-CRUD
 
-## 🎨 Design
+3.  Abra o arquivo `index.html` no navegador:
 
-O sistema utiliza um design minimalista corporativo com:
-- Paleta de cores profissional (Azul + Teal)
-- Tipografia clara (Poppins + Inter)
-- Espaçamento generoso
-- Micro-interações sutis
-- Totalmente responsivo
+-   Clique duas vezes no arquivo\
+    OU\
+-   Utilize a extensão Live Server no VS Code
 
-## 💾 Dados
+------------------------------------------------------------------------
 
-Os dados são salvos automaticamente no LocalStorage do navegador. Cada vez que você:
-- Adiciona um produto
-- Edita um produto
-- Deleta um produto
+## 🖥️ Como Usar
 
-Os dados são sincronizados e persistidos.
+1.  Preencha o formulário com os dados do produto\
+2.  Clique em **Cadastrar**\
+3.  O produto aparecerá na tabela\
+4.  Utilize os botões para **editar** ou **excluir**
 
-## 🔧 Funcionalidades Técnicas
+------------------------------------------------------------------------
 
-- **Sem dependências de servidor**: Funciona 100% no navegador
-- **LocalStorage**: Dados persistem entre sessões
-- **Chart.js**: Gráficos interativos
-- **Font Awesome**: Ícones profissionais
-- **Google Fonts**: Tipografia otimizada
+## 📸 Screenshots
 
-## 📱 Compatibilidade
+Adicione imagens da interface do projeto nesta seção.
 
-- Chrome, Firefox, Safari, Edge (versões recentes)
-- Tablets e dispositivos móveis
-- Qualquer navegador moderno com suporte a ES6+
+Exemplo:
 
-## 🎯 Próximas Melhorias
+    /screenshots
+       ├── home.png
+       ├── cadastro.png
+       └── lista.png
 
-- Sincronização com banco de dados
-- Autenticação de usuários
-- Relatórios avançados
-- Integração com APIs
-- Modo offline aprimorado
+No README:
 
-## 📝 Licença
+    ![Tela Inicial](screenshots/home.png)
+    ![Cadastro de Produto](screenshots/cadastro.png)
 
-Livre para uso pessoal e comercial.
+------------------------------------------------------------------------
 
----
+## 🎯 Objetivo do Projeto
 
-**TechStore Pro v1.0** - Sistema profissional de gestão de produtos
+Este projeto foi criado com fins educacionais, visando:
+
+-   Praticar lógica de programação\
+-   Manipulação do DOM\
+-   Organização de código\
+-   Estruturação de projetos front-end
+
+------------------------------------------------------------------------
+
+## 🔗 Acesso ao Projeto Online
+
+👉 https://lucasdevelop2008.github.io/TechStore---Sistema-de-CRUD/
