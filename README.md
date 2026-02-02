@@ -43,7 +43,7 @@ para estudos, portfólio e demonstração de habilidades em JavaScript.
 1.  Clone o repositório:
 
 ```{=html}
-<!-- -->
+
 ```
     git clone https://github.com/lucasdevelop2008/TechStore---Sistema-de-CRUD.git
 
