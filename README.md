@@ -44,15 +44,17 @@ para estudos, portfólio e demonstração de habilidades em JavaScript.
 
 ```{=html}
 
-```
     git clone https://github.com/lucasdevelop2008/TechStore---Sistema-de-CRUD.git
+
+```
 
 2.  Acesse a pasta do projeto:
 
 ```{=html}
-<!-- -->
-```
+
     cd TechStore---Sistema-de-CRUD
+
+```
 
 3.  Abra o arquivo `index.html` no navegador:
 
