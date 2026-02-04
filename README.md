@@ -11,11 +11,11 @@ para estudos, portfólio e demonstração de habilidades em JavaScript.
 
 ## ✨ Funcionalidades
 
--   ➕ Cadastrar novos produtos\
--   📋 Listar produtos em tabela\
--   ✏️ Editar produtos cadastrados\
--   🗑️ Excluir produtos\
--   🧠 Manipulação dinâmica do DOM\
+-   ➕ Cadastrar novos produtos
+-   📋 Listar produtos em tabela
+-   ✏️ Editar produtos cadastrados
+-   🗑️ Excluir produtos
+-   🧠 Manipulação dinâmica do DOM
 -   💾 Persistência local (caso utilize LocalStorage)
 
 ------------------------------------------------------------------------
@@ -66,9 +66,9 @@ para estudos, portfólio e demonstração de habilidades em JavaScript.
 
 ## 🖥️ Como Usar
 
-1.  Preencha o formulário com os dados do produto\
-2.  Clique em **Cadastrar**\
-3.  O produto aparecerá na tabela\
+1.  Preencha o formulário com os dados do produto
+2.  Clique em **Cadastrar**
+3.  O produto aparecerá na tabela
 4.  Utilize os botões para **editar** ou **excluir**
 
 ------------------------------------------------------------------------
@@ -95,9 +95,9 @@ No README:
 
 Este projeto foi criado com fins educacionais, visando:
 
--   Praticar lógica de programação\
--   Manipulação do DOM\
--   Organização de código\
+-   Praticar lógica de programação
+-   Manipulação do DOM
+-   Organização de código
 -   Estruturação de projetos front-end
 
 ------------------------------------------------------------------------
